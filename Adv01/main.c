@@ -8,11 +8,11 @@ void swap (int *x, int *y) {
 }
 
 int main () {
-    FILE *f = fopen("input.txt", "r");
+    FILE *file = fopen("input.txt", "r");
     char line[10];
     int max[3] = {1, 1, 1};
     int temp = 0;
-    while (fgets(line, 10, f)) {
+    while (fgets(line, 10, file)) {
 		if (line[0] == '\n') {
 			if (temp > max[2]) max[2] = temp;
 			if (max[2] > max[1]) swap(max+2, max+1);
@@ -24,7 +24,7 @@ int main () {
     	} 
     	else temp += atoi(line);
     }
-    fclose(f);
+    fclose(file);
     printf("%i %i %i\n", max[2], max[1], max[0]);
     printf("%i\n", max[2] + max[1] + max[0]);
    	return 0;
